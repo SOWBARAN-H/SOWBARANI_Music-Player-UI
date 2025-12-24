@@ -65,28 +65,20 @@ Add screenshots to `img/` and embed them here in Markdown:
 - No build tools required. Edit HTML/CSS files directly.
 - Consider organizing content data (artists/albums) with simple sections or cards for consistency.
 
-## Git Push Helper
-A convenience script `push.ps1` helps verify connectivity/DNS and push safely.
-
-Common usage:
+## Git Tips
+Use standard Git commands to commit and push changes:
 
 ```powershell
-# Dry-run: run checks and simulate push
-powershell -NoProfile -ExecutionPolicy Bypass -File .\push.ps1 -DryRun
+# Stage and commit all changes
+git add -A
+git commit -m "update: content and styles"
 
-# Commit all changes with a message and push
-powershell -NoProfile -ExecutionPolicy Bypass -File .\push.ps1 -Message "update: content and styles"
+# Push to the current branch's upstream
+git push
 
-# Specify a different remote or branch
-powershell -NoProfile -ExecutionPolicy Bypass -File .\push.ps1 -Message "feat: new section" -Remote origin -Branch main
-
-# If you rely on a corporate proxy and don't want the script to unset Git proxies
-powershell -NoProfile -ExecutionPolicy Bypass -File .\push.ps1 -Message "fix: assets" -NoProxyUnset
+# Or set upstream on first push
+git push -u origin main
 ```
-
-Notes:
-- The script will warn if you have uncommitted changes. Provide `-Message` to auto-commit all changes before pushing.
-- If no upstream is set, it will push with `-u` and set the upstream for the current branch.
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
